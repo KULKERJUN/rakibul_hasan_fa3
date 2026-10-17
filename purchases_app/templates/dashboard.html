@@ -1,0 +1,38 @@
+{% extends 'master/base.html' %} 
+{% block title %} 
+{{ title }} 
+{% endblock title%} 
+{% block block1 %}
+<div class="container mt-4">
+  <h3 class="mb-4">Welcome, {{ request.user.user_profile.full_name}}</h3>
+
+  <div class="row g-3">
+    <div class="col-md-4">
+      <div class="card border-success">
+        <div class="card-body">
+          <h6 class="text-muted">Subtotal</h6>
+          <h3>{{ total_subtotal }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card border-warning">
+        <div class="card-body">
+          <h6 class="text-muted">Total Amount</h6>
+          <h3>{{ total_amount }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card border-danger">
+        <div class="card-body">
+          <h6 class="text-muted">Due Amount</h6>
+          <h3>{{ total_due }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock block1 %}

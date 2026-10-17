@@ -1,0 +1,32 @@
+{% extends 'master/base.html' %}
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+
+{% block block1 %}
+<a href="{% url 'supplier_add_view' %}" class='btn btn-primary mb-5'>ADD SUPPLIER</a>
+<table class="table table-striped">
+ <thead>
+    <tr>
+        <th>Supplier Name</th>
+        <th>Contact Number</th>
+        <th>Address</th>
+        <th>Action</th>
+    </tr>
+ </thead>
+ <tbody> 
+    {% for i in data %}
+        <tr>
+            <td>{{i.supplier_name}}</td>
+            <td>{{i.contact_number}}</td>
+            <td>{{i.address}}</td>
+            <td>
+                <a href="{% url 'supplier_edit_view' i.id %}" class='btn btn-success'>Edit</a>
+                <a href="{% url 'supplier_delete_view' i.id %}" class='btn btn-danger'>Delete</a>
+            </td>
+        </tr>
+    {% endfor %}    
+ </tbody>
+</table>
+{% endblock block1 %}
